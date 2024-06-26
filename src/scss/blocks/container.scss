@@ -1,7 +1,15 @@
 .container {
   position: relative;
   height: 240px;
+  margin-bottom: 250px;
   background-image: url(../../assets/images/bg-main-mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
+
+  &--form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
 }
