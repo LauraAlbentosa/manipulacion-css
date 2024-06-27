@@ -22,8 +22,10 @@ const inputs = document.querySelectorAll('input[type=text]');
 const spanError = document.querySelectorAll('div > span');
 const nameElement = document.getElementById('card-name');
 const numberElement = document.getElementById('card-number');
-const expElement = document.getElementById('card-exp');
-const nameInputElement = document.getElementById('name');
+const expMonthElement = document.getElementById('card-exp-mm');
+const expYearElement = document.getElementById('card-exp-yy');
+const cvcElement = document.getElementById('card-cvc')
+
 
 const checkForm = event => {
   event.preventDefault();
@@ -41,12 +43,43 @@ const checkForm = event => {
   });
 };
 
-formElement.addEventListener('submit', checkForm);
-
-const writeDatainCard = () => {
+const writeNameinCard = () => {
   nameElement.textContent = inputs[0].value;
-  numberElement.textContent = inputs[1].value;
-  expElement.textContent = inputs[2].value + inputs[3].value;
 };
 
-nameInputElement.addEventListener('keypress', writeDatainCard);
+const writeNumberinCard = () => {
+  numberElement.textContent = '';
+  let count = 0;
+
+  for (const number of inputs[1].value) {
+    count++;
+    numberElement.textContent += number;
+    if (count === 4) {
+      numberElement.textContent += ' ';
+      count = 0;
+    }
+  }
+};
+
+const writeMonthinCard = () => {
+  expMonthElement.textContent = inputs[2].value +'/';
+
+  if(inputs[2].value > 12) {
+    expMonthElement.textContent = '12 / '
+  }
+};
+
+const writeYearinCard = () => {
+  expYearElement.textContent = inputs[3].value;
+};
+
+const writeCVCinCard =() =>{
+  cvcElement.textContent = inputs[4].value;
+}
+
+formElement.addEventListener('submit', checkForm);
+inputs[0].addEventListener('input', writeNameinCard);
+inputs[1].addEventListener('input', writeNumberinCard);
+inputs[2].addEventListener('input', writeMonthinCard);
+inputs[3].addEventListener('input', writeYearinCard);
+inputs[4].addEventListener('input', writeCVCinCard)

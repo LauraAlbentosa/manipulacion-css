@@ -14,6 +14,7 @@
       <div class="container">
         <div class="card">
           <img src="./assets/images/bg-card-back.png" alt="">
+          <span id="card-cvc" class="card__cvc text">000</span>
         </div>
 
         <div class="card card--front">
@@ -22,8 +23,11 @@
 
           <div class="card__info">
             <span id="card-number" class="card__number text">0000 0000 0000 0000</span>
-            <span id="card-name" class="card__name text">Jane MAry</span>
-            <span id="card-exp" class="card__exp text">00/00</span>
+            <span id="card-name" class="card__name text">Jane Appleseed</span>
+            <div>
+              <span id="card-exp-mm" class="card__exp text">00 /</span>
+              <span id="card-exp-yy" class="card__exp text">00</span>
+            </div>
           </div>
         </div>
       </div>
@@ -38,7 +42,7 @@
     
           <div class="form__container">
             <label class="text label" for="number">Card Numbers</label>
-            <input class="input" type="text" id="number" placeholder="e.g. 1234 5678 9123 0000">
+            <input class="input" type="text" id="number" maxlength="16" placeholder="e.g. 1234 5678 9123 0000">
             <span class="text--error"></span>
           </div>
     
@@ -46,8 +50,8 @@
             <div class="form__container"> 
               <label class="text label" for="exp-mm">Exp. Date (MM/YY)</label>
               <div class="form__container--grid">
-                <input class="input input--2" type="text" placeholder="MM" id="exp-mm">
-                <input class="input input--2" type="text" placeholder="YY" id="exp-yy">
+                <input class="input input--2" type="text" placeholder="MM" id="exp-mm" maxlength="2">
+                <input class="input input--2" type="text" placeholder="YY" id="exp-yy" maxlength="2">
                 <span class="text--error grid"></span>
               </div> 
             </div>
@@ -55,7 +59,7 @@
             <div class="form__container">
               <label class="text label"
               for="cvc">CVC</label>
-              <input class="input input--cvc" type="text" id="cvc" placeholder="e.g. 123">
+              <input class="input input--cvc" type="text" id="cvc" maxlength="3" placeholder="e.g. 123">
               
               <span class="text--error"></span>
             </div>
