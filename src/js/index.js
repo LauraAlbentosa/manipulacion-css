@@ -17,36 +17,36 @@ formElmente.addEventListener('input', event => {
 
 */
 
-const formElement = document.getElementById('form')
-const inputs = document.querySelectorAll('input')
-const nameElement = document.getElementById('card-name')
+const formElement = document.getElementById('form');
+const inputs = document.querySelectorAll('input[type=text]');
+const spanError = document.querySelectorAll('div > span');
+const nameElement = document.getElementById('card-name');
+const numberElement = document.getElementById('card-number');
+const expElement = document.getElementById('card-exp');
+const nameInputElement = document.getElementById('name');
 
-
-const checkForm = event =>{
+const checkForm = event => {
   event.preventDefault();
-  
-  for (const input of inputs){
-    input.classList.remove('error')
-    
-    if(!input.value){
-      input.classList.add('error')
-    }else{
-      input.classList.remove('error')
+
+  inputs.forEach(input => {
+    input.classList.remove('error');
+
+    if (input.value === '') {
+      input.classList.add('error');
+      input.nextElementSibling.textContent = 'Can´t be blank';
+    } else {
+      input.classList.remove('error');
+      input.nextElementSibling.textContent = '';
     }
-  }
+  });
+};
 
-}
+formElement.addEventListener('submit', checkForm);
 
-formElement.addEventListener('submit', checkForm)
+const writeDatainCard = () => {
+  nameElement.textContent = inputs[0].value;
+  numberElement.textContent = inputs[1].value;
+  expElement.textContent = inputs[2].value + inputs[3].value;
+};
 
-const writeDatainCard = () =>{
-  let data = []
-  for (const input of inputs){
-    data += input.value 
-    
-  }
-
-  nameElement.textContent = data[0]
-
-}
-
+nameInputElement.addEventListener('keypress', writeDatainCard);

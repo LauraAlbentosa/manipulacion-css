@@ -1,9 +1,17 @@
 .form {
-   
-   &__container{
+  &__container {
     display: flex;
     flex-direction: column;
     margin-bottom: 9px;
-   }
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+  }
+}
 
+.grid {
+  display: grid;
+  grid-column: 1/3;
 }

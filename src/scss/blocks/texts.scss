@@ -1,4 +1,14 @@
-.text{
-    text-transform: uppercase;
-    
+.text {
+  text-transform: uppercase;
+
+  &--error {
+    color: red;
+  }
+  &--d-none {
+    display: none;
+  }
+
+  &--d-block {
+    display: block;
+  }
 }

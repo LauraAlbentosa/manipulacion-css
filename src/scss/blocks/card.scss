@@ -12,20 +12,20 @@
     left: 20px;
   }
 
-  &__info{
+  &__info {
     position: absolute;
-    top: 130px;
-    padding: 15px;
+    top: 120px;
+    padding: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     color: white;
-    
   }
 
-  &__number{
+  &__number {
     margin-bottom: 30px;
     font-size: 25px;
     width: 100%;
+    letter-spacing: 2.9px;
   }
 }
